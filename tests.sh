@@ -1,3 +1,3 @@
 # Run all tests in the tests directory
 
-sh tests/html_writer_tests.sh
+sh tests/index_manager_tests.sh

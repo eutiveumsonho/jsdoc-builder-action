@@ -5,6 +5,7 @@ RUN apk add --no-cache nodejs-current npm
 RUN npm install -g jsdoc
 
 COPY entrypoint.sh /entrypoint.sh
+COPY templates /templates
 
 RUN chmod +x /entrypoint.sh
 
