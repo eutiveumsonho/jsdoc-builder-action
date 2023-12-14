@@ -2,7 +2,20 @@
 
 . ./index_manager.sh
 
-echo "Starting index_manager"
+echo "Starting index_manager_tests"
+
+echo "Starting find_first_html_file tests"
+echo "Finding first html file in root folder should output /templates/index.html"
+output_find_test=$(find_first_html_file ".")
+echo "$output_find_test"
+case "$output_find_test" in
+  *"/templates/index.html"*)
+    echo "Test passed"
+    ;;
+  *)
+    echo "Test failed"
+    ;;
+esac
 
 echo "Starting create_index_html tests"
 echo "Creating index.html when it doesn't exist, in ./tests"
