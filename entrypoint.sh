@@ -45,7 +45,7 @@ echo "Generating documentation"
 jsdoc -r $JSDOC_INPUT_FILES -c jsdoc.json -d "$DOCS_DIRECTORY"
 
 echo "Loading index_manager and grabbing path to first html file"
-source index_manager.sh
+source "$(dirname "$0")/index_manager.sh"
 FIRST_HTML_FILE=$(find_first_html_file "$DOCS_DIRECTORY")
 
 echo "Removing DOCS_DIRECTORY from FIRST_HTML_FILE path"
