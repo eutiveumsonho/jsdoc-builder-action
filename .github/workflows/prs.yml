@@ -5,8 +5,8 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  release:
-    name: release
+  pr:
+    name: tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
