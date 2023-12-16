@@ -63,7 +63,9 @@ cd "$CLONE_DIR"
 
 echo "Generating or updating index.html"
 create_index_html "."
+cat index.html
 update_index_html "index.html" "<li><a href=\"./$FIRST_HTML_FILE\">$FIRST_HTML_FILE</a></li>"
+cat index.html
 
 echo "Deleting templates from destination git repository"
 rm -rf templates
@@ -91,4 +93,4 @@ git pull --rebase
 
 echo "git push origin:"
 # -u: sets de branch when pushing to a branch that does not exist
-git push "https://$USER_NAME:$API_TOKEN_GITHUB@github.com/$DESTINATION_REPOSITORY_USERNAME/$DESTINATION_REPOSITORY_NAME.git" -u "$TARGET_BRANCH"
+git push "https://$USER_NAME:$API_TOKEN_GITHUB@github.com/$DESTINATION_REPOSITORY_USERNAME/$DESTINATION_REPOSITORY_NAME.git" -u "$TARGET_BRANCH --force"
