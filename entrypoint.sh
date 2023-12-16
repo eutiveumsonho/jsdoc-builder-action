@@ -55,18 +55,14 @@ echo "Copying documentation to destination git repository"
 ls -la "$DOCS_DIRECTORY"
 cp -ra "$DOCS_DIRECTORY"/. "$CLONE_DIR"
 
-echo "Copying templates to destination git repository"
-cp -ra "$(dirname "$0")/templates/". "$CLONE_DIR"
-
 echo "Changing directory to destination git repository"
 cd "$CLONE_DIR"
 
 echo "Generating or updating index.html"
-create_index_html "."
+create_index_html "." "$(dirname "$0")/templates/index.html"
+cat index.html
 update_index_html "index.html" "<li><a href=\"./$FIRST_HTML_FILE\">$FIRST_HTML_FILE</a></li>"
-
-echo "Deleting templates from destination git repository"
-rm -rf templates
+cat index.html
 
 echo "Files that will be pushed:"
 ls -la
@@ -91,4 +87,4 @@ git pull --rebase
 
 echo "git push origin:"
 # -u: sets de branch when pushing to a branch that does not exist
-git push "https://$USER_NAME:$API_TOKEN_GITHUB@github.com/$DESTINATION_REPOSITORY_USERNAME/$DESTINATION_REPOSITORY_NAME.git" -u "$TARGET_BRANCH"
+git push --force "https://$USER_NAME:$API_TOKEN_GITHUB@github.com/$DESTINATION_REPOSITORY_USERNAME/$DESTINATION_REPOSITORY_NAME.git" -u "$TARGET_BRANCH"
