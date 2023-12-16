@@ -93,4 +93,4 @@ git pull --rebase
 
 echo "git push origin:"
 # -u: sets de branch when pushing to a branch that does not exist
-git push "https://$USER_NAME:$API_TOKEN_GITHUB@github.com/$DESTINATION_REPOSITORY_USERNAME/$DESTINATION_REPOSITORY_NAME.git" -u "$TARGET_BRANCH --force"
+git push --force "https://$USER_NAME:$API_TOKEN_GITHUB@github.com/$DESTINATION_REPOSITORY_USERNAME/$DESTINATION_REPOSITORY_NAME.git" -u "$TARGET_BRANCH"
