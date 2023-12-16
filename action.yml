@@ -42,3 +42,6 @@ runs:
     - ${{ inputs.destination-repository-username }}
     - ${{ inputs.target-branch }}
     - ${{ inputs.commit-message }}
+branding:
+  icon: copy
+  color: purple
