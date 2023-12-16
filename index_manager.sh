@@ -18,6 +18,13 @@ create_index_html () {
 # This script will add a new line of HTML to the index.html file
 # The new line of HTML will be added after the line that contains the comment <!-- @jsdoc-builder-action new-version -->
 update_index_html () {
+    # If file already contains the input, skip it
+    grep -q "$2" "$1"
+    if [ $? -eq 0 ]; then
+        echo "File already contains $2"
+        return
+    fi
+
     awk -v line="$2" '
         /<!-- @jsdoc-builder-action new-version -->/ {
             print

@@ -61,8 +61,35 @@ else
     echo "File was not changed as expected"
     # Restore the original file
     cp ./templates/index.html.bak ./templates/index.html
+    rm ./templates/index.html.bak
     exit 1
 fi
+
+update_index_html "./templates/index.html" "<a href='/test2'>test2</a>"
+
+# Check if the file was changed as expected
+grep -q "<a href='/test2'>test2</a>" ./templates/index.html
+if [ $? -eq 0 ]; then
+    echo "File was changed as expected"
+    cat ./templates/index.html
+else
+    echo "File was not changed as expected"
+    # Restore the original file
+    cp ./templates/index.html.bak ./templates/index.html
+    rm ./templates/index.html.bak
+    exit 1
+fi
+
+duplicate_index_entry_output=$(update_index_html "./templates/index.html" "<a href='/test'>test</a>")
+echo "$duplicate_index_entry_output"
+case "$duplicate_index_entry_output" in
+  *"File already contains"*)
+    echo "Test passed"
+    ;;
+  *)
+    echo "Test failed"
+    ;;
+esac
 
 # Restore the original file
 cp ./templates/index.html.bak ./templates/index.html
