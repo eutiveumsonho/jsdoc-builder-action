@@ -8,7 +8,7 @@ find_first_html_file () {
 # This script will create an index.html file in the specified directory in case it doesn't exist
 create_index_html () {
     if [ ! -f "$1/index.html" ]; then
-        cp templates/index.html "$1/index.html"
+        cp "$2" "$1/index.html"
         echo "index.html created in $1"
     else
         echo "index.html exists in $1"

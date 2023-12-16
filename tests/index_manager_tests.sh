@@ -19,7 +19,7 @@ esac
 
 echo "Starting create_index_html tests"
 echo "Creating index.html when it doesn't exist, in ./tests"
-output_create_test=$(create_index_html "./tests")
+output_create_test=$(create_index_html "./tests" "templates/index.html")
 echo "$output_create_test"
 case "$output_create_test" in
   *"index.html created in"*)
@@ -33,7 +33,7 @@ esac
 rm ./tests/index.html
 
 echo "Skipping index.html creation when it already exists, in ./templates"
-output_skip_test=$(create_index_html "./templates")
+output_skip_test=$(create_index_html "./templates" "templates/index.html")
 echo "$output_skip_test"
 case "$output_skip_test" in
   *"index.html exists in"*)
