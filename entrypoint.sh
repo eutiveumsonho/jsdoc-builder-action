@@ -56,7 +56,7 @@ ls -la "$DOCS_DIRECTORY"
 cp -ra "$DOCS_DIRECTORY"/. "$CLONE_DIR"
 
 echo "Copying templates to destination git repository"
-cp -ra templates/. "$CLONE_DIR"
+cp -ra "$(dirname "$0")/templates/". "$CLONE_DIR"
 
 echo "Changing directory to destination git repository"
 cd "$CLONE_DIR"
