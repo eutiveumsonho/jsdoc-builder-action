@@ -1,0 +1,13 @@
+name: Bug Report
+description: Report a bug on this project
+title: "[Bug]: "
+labels: ["bug", "triage"]
+projects: []
+assignees:
+  - marcelovicentegc
+body:
+  - type: textarea
+    attributes:
+      label: "What's wrong or what could be better?"
+    validations:
+      required: true

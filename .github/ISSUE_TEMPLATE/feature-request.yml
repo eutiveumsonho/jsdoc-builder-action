@@ -1,0 +1,13 @@
+name: Feature Request
+description: Request a feature for this project
+title: "[Feature Request]: "
+labels: ["enhancement", "triage"]
+projects: []
+assignees:
+  - marcelovicentegc
+body:
+  - type: textarea
+    attributes:
+      label: "What do you want to see in this project?"
+    validations:
+      required: true
